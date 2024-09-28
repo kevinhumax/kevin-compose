@@ -8,6 +8,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import com.kevin.compose.ui.remember.LoginScreen
+import com.kevin.compose.ui.sideeffects.DisposableEffectForLifeCycle
 import com.kevin.compose.ui.theme.KevincomposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,7 +21,8 @@ class MainActivity : ComponentActivity() {
                     color = Color.White
                 ) {
                     //Remember
-                    LoginScreen()
+//                    LoginScreen()
+                    DisposableEffectForLifeCycle()
                 }
             }
         }
