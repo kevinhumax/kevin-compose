@@ -48,6 +48,7 @@ fun LoginScreen() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Log.e("KevinCompose", "Login screen start")
+
 //        if (value.isEmpty()) {
 //
 //        }
@@ -55,18 +56,31 @@ fun LoginScreen() {
         //Stateless
         OutlinedTextField(value = value, onValueChange = { value     = it })
 
+
         Log.e("KevinCompose", "Login screen end")
     }
 }
 
 @Composable
-fun Title(modifier: Modifier = Modifier) {
+fun Title(
+    modifier: Modifier = Modifier,
+//    text: String
+) {
+    //First time: State less
+    //Second time: State full
+
     Log.e("KevinCompose", "Title start")
     Text(text = "LOGIN SCREEN")
+
+//    Text(text = text)
+
     Log.e("KevinCompose", "Title end")
 //    DisposableEffect(Unit) {
 //        onDispose { Log.e("KevinCompose", "Title disposed") }
 //    }
+
+    //DisposableEffect with key
+
 }
 
 @Preview(showBackground = true, showSystemUi = true)
@@ -76,3 +90,5 @@ fun LoginPreview() {
         LoginScreen()
     }
 }
+
+//State hoisting
