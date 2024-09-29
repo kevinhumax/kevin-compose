@@ -21,8 +21,8 @@ class MainActivity : ComponentActivity() {
                     color = Color.White
                 ) {
                     //Remember
-//                    LoginScreen()
-                    DisposableEffectForLifeCycle()
+                    LoginScreen()
+//                    DisposableEffectForLifeCycle()
                 }
             }
         }

@@ -4,12 +4,14 @@ import android.annotation.SuppressLint
 import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -25,19 +27,48 @@ data class User(var name: String, var age: Int)
 @SuppressLint("UnrememberedMutableState")
 @Composable
 fun LoginScreen() {
-//    var value = ""
+    //No recomposition
+    var value = ""
+
+    //Recomposition but...
 //    var value by mutableStateOf("")
+
+//Using remember
 //    var value = remember { mutableStateOf("") }
+
     //delegate property
-    var value by remember {
-        mutableStateOf("")
-    }
+//    var value by remember {
+//        mutableStateOf("")
+//    }
+
+
 //    var value by rememberSaveable {
 //        mutableStateOf("")
 //    }
 
 //    var user by remember { mutableStateOf(User("Kevin", 18)) }
 //    var user by rememberSaveable { mutableStateOf(User("Kevin", 18)) }
+
+    //Remember with param
+    //Remember: Tính toán mỗi khi có recomposition, Derived State of: Tính toán mỗi khi state thay đổi
+
+//    var lastName by remember {
+//        mutableStateOf("")
+//    }
+//    val fullName = remember {
+//        Log.e("KevinCompose", "Full name recomputed")
+//        "Kevin $lastName"
+//    }
+
+//    val fullName by remember {
+//        derivedStateOf {
+//            Log.e("KevinCompose", "Full name recomputed")
+//            "Kevin $lastName"
+//        }
+//    }
+//
+
+
 
 
     Column(
@@ -54,7 +85,11 @@ fun LoginScreen() {
 //        }
         Title()
         //Stateless
-        OutlinedTextField(value = value, onValueChange = { value     = it })
+        OutlinedTextField(value = value, onValueChange = { value = it })
+
+//        Spacer(modifier = Modifier.padding(8.dp))
+//        Text(text = "Full name: $fullName")
+//        OutlinedTextField(value = lastName, onValueChange = { lastName = it })
 
 
         Log.e("KevinCompose", "Login screen end")
